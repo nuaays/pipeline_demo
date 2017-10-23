@@ -13,8 +13,9 @@ node {
    // Get the maven tool.
    // ** NOTE: This 'mvn' maven tool must be configured
    // **       in the global configuration.
-   def mvnHome = "mvn"
+   //def mvnHome = "mvn"
    //def mvnHome = tool 'mvn'
+   sh 'which mvn'
 
    stage 'build'
    // set the version of the build artifact to the Jenkins BUILD_NUMBER so you can
@@ -25,9 +26,9 @@ node {
 
    stage 'test'
    parallel 'test': {
-     echo "/bin/mvn test; sleep 2;"
+     echo "/bin/mvn test; ";sleep 2;
    }, 'verify': {
-     echo "/bin/mvn verify; sleep 3"
+     echo "/bin/mvn verify" ; sleep 3
    }
 
    stage 'archive'{
