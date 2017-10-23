@@ -29,7 +29,7 @@ node {
    }
 
    stage 'archive'{
-     #archive 'target/*.jar'
+     //archive 'target/*.jar'
      echo 'target/*.jar'
    }
    
@@ -41,7 +41,7 @@ node {
    echo 'echo "write your deploy code here"; sleep 5;'
 
    stage 'deploy Production'
-   #input 'Proceed?'
+   //input 'Proceed?'
    echo 'echo "write your deploy code here"; sleep 6;'
-   #archive 'target/*.jar'
+   //archive 'target/*.jar'
 }
