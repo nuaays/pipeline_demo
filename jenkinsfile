@@ -19,14 +19,14 @@ node {
    stage 'build'
    // set the version of the build artifact to the Jenkins BUILD_NUMBER so you can
    // map artifacts to Jenkins builds
-   echo "${mvnHome}/bin/mvn versions:set -DnewVersion=${env.BUILD_NUMBER}"
-   echo "${mvnHome}/bin/mvn package"
+   echo "$bin/mvn versions:set -DnewVersion=${env.BUILD_NUMBER}"
+   echo "$bin/mvn package"
 
    stage 'test'
    parallel 'test': {
-     echo "${mvnHome}/bin/mvn test; sleep 2;"
+     echo "/bin/mvn test; sleep 2;"
    }, 'verify': {
-     echo "${mvnHome}/bin/mvn verify; sleep 3"
+     echo "/bin/mvn verify; sleep 3"
    }
 
    stage 'archive'{
